@@ -1,7 +1,32 @@
 import logo from './logo.svg';
 import './App.css';
-
+import { API } from 'aws-amplify';
+import * as queries from './graphql/queries'
+import * as mutations from './graphql/mutations'
 function App() {
+
+  async function fetchTodos(){
+
+    const res = await API.graphql({
+      query: queries.listTodos
+    })
+    console.log("fetching todos")
+    console.log(res)
+  }
+
+  async function createTodo(){
+    const newTodo = {
+      name : "specialTodo",
+      description: "hellooo"
+    }
+    const res = await API.graphql({
+      query: mutations.createTodo,
+      variables:{
+        input: newTodo
+      }
+    })
+    console.log(res)
+  }
   return (
     <div className="App">
       <header className="App-header">
@@ -17,6 +42,8 @@ function App() {
         >
           Learn React wit me
         </a>
+        <button onClick={fetchTodos}>Fetch Todo</button>
+        <button onClick={createTodo}>Create Todo</button>
       </header>
     </div>
   );
