@@ -27,6 +27,28 @@ function App() {
     })
     console.log(res)
   }
+
+  async function updateBigTask(){
+    const updateBigTask = {
+      id : "5d79ed38-2445-4790-b70b-f1e3d170cbf2",
+      job : "UPDATED JOB AGAIN"
+    }
+    const res = await API.graphql({
+      query : mutations.updateBigTask,
+      variables:{
+        input: updateBigTask
+      }
+    })
+    console.log(res)
+  }
+
+  async function getBigTasks(){
+    const res = await API.graphql({
+      query : queries.listBigTasks
+    })
+    console.log(res)
+  }
+
   return (
     <div className="App">
       <header className="App-header">
@@ -44,6 +66,8 @@ function App() {
         </a>
         <button onClick={fetchTodos}>Fetch Todo</button>
         <button onClick={createTodo}>Create Todo</button>
+        <button onClick={updateBigTask}>UpdateBigTask</button>
+        <button onClick={getBigTasks}>GetBigTask</button>
       </header>
     </div>
   );

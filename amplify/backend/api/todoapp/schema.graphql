@@ -7,3 +7,9 @@ type Todo @model {
     name: String!,
     description: String
 }
+
+type BigTask @model {
+    id: ID!,
+    job: String!,
+    date: AWSDate!
+}

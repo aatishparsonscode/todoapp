@@ -37,3 +37,39 @@ export const onDeleteTodo = /* GraphQL */ `
     }
   }
 `;
+export const onCreateBigTask = /* GraphQL */ `
+  subscription OnCreateBigTask($filter: ModelSubscriptionBigTaskFilterInput) {
+    onCreateBigTask(filter: $filter) {
+      id
+      job
+      date
+      createdAt
+      updatedAt
+      __typename
+    }
+  }
+`;
+export const onUpdateBigTask = /* GraphQL */ `
+  subscription OnUpdateBigTask($filter: ModelSubscriptionBigTaskFilterInput) {
+    onUpdateBigTask(filter: $filter) {
+      id
+      job
+      date
+      createdAt
+      updatedAt
+      __typename
+    }
+  }
+`;
+export const onDeleteBigTask = /* GraphQL */ `
+  subscription OnDeleteBigTask($filter: ModelSubscriptionBigTaskFilterInput) {
+    onDeleteBigTask(filter: $filter) {
+      id
+      job
+      date
+      createdAt
+      updatedAt
+      __typename
+    }
+  }
+`;

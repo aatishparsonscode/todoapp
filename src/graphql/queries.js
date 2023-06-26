@@ -33,3 +33,35 @@ export const listTodos = /* GraphQL */ `
     }
   }
 `;
+export const getBigTask = /* GraphQL */ `
+  query GetBigTask($id: ID!) {
+    getBigTask(id: $id) {
+      id
+      job
+      date
+      createdAt
+      updatedAt
+      __typename
+    }
+  }
+`;
+export const listBigTasks = /* GraphQL */ `
+  query ListBigTasks(
+    $filter: ModelBigTaskFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listBigTasks(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        job
+        date
+        createdAt
+        updatedAt
+        __typename
+      }
+      nextToken
+      __typename
+    }
+  }
+`;
